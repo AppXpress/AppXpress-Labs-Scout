@@ -1,0 +1,121 @@
+<ion-view view-title="Subscriptions">
+	<ion-nav-buttons side="right">
+		<a class="" href="#/tab/config" style="padding-top:0.15em;padding-right:0.4em;">
+			<i class="icon ion-ios-plus-empty" style="color:#0a0f2c;font-size:2.2em;"></i>
+		</a>
+	</ion-nav-buttons>
+	<ion-content>
+		
+	<!--  	
+		<div class="list card" on-hold="show()">
+			<div class="item item-divider">Yifu International <span style="float:right;"> <label class="toggle toggle-balanced">
+				<input type="checkbox" checked="">
+					<div class="track">
+						<div class="handle"></div>
+					</div>
+					</label></span></div>
+			<div class="item item-body">
+				<div>
+					Factory <b>Yifu International</b><p>Frequency : daily</p>
+				</div>
+			</div>
+	  
+		</div>
+		
+		
+		
+		<div class="list card" on-hold="show()">
+			<div class="item item-divider">Yangmao Industries <span style="float:right;"><label class="toggle toggle-balanced">
+				<input type="checkbox" checked="">
+					<div class="track">
+						<div class="handle"></div>
+					</div>
+					</label></span></div>
+			<div class="item item-body">
+				<div>
+					Factory <b>Yangmao Industries</b><p>Frequency : daily</p>
+				</div>
+			</div>
+			
+		</div>
+		<div class="list card" on-hold="show()">
+			<div class="item item-divider">Xie lei International<span style="float:right;"><label class="toggle toggle-balanced">
+				<input type="checkbox" checked="">
+					<div class="track">
+						<div class="handle"></div>
+					</div>
+					</label></span></div>
+			<div class="item item-body">
+				<div>
+					Factory <b>Xie lei International</b><p>Frequency : daily</p>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="list card" on-hold="show()">
+			<div class="item item-divider">Active Clothing<span style="float:right;"><label class="toggle toggle-balanced">
+				<input type="checkbox" checked="">
+					<div class="track">
+						<div class="handle"></div>
+					</div>
+					</label></span></div>
+			<div class="item item-body">
+				<div>
+					Factory <b>Active Clothing</b><p>Frequency : daily</p>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="list card" on-hold="show()">
+			<div class="item item-divider">Kapaṛe India Ltd<span style="float:right;"><label class="toggle toggle-balanced">
+				<input type="checkbox" checked="">
+					<div class="track">
+						<div class="handle"></div>
+					</div>
+					</label></span></div>
+			<div class="item item-body">
+				<div>
+					Factory <b>Kapaṛe India Ltd</b><p>Frequency : daily</p>
+				</div>
+			</div>
+			
+		</div>  -->
+		<div>
+		<div ng-show="loginError">{{errorMessage}}</div>
+		</div>
+		<div class="list card customListFor"  ng-repeat="subscription in userObject.platformSubscriptions" on-hold="show(userObject.uid,subscription.uid)">
+			<div class="item item-divider"><div class="row">
+				<div class="col-75">
+				<div style="font-size:0.9em;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;padding-top:8px;">{{subscription.watchedFactory.name }}</div>
+				</div>
+				<div class="col-25">
+				<span style="float:right;padding-top:5px;"><label class="toggle toggle-balanced">
+				<input type="checkbox" ng-change="toggleSubscription(userObject.uid,subscription.uid,subscription.enabled)" ng-model="subscription.enabled">
+					<div class="track">
+						<div class="handle"></div>
+					</div>
+					</label></span>
+				</div>
+				</div>
+				</div>
+			<div class="item item-body">
+				
+					Location <b>
+					<a ng-if="subscription.watchedFactory.address.addressLine1">{{subscription.watchedFactory.address.addressLine1 }},</a>
+					<a ng-if="subscription.watchedFactory.address.city">{{subscription.watchedFactory.address.city }}, </a>
+					<a ng-if="subscription.watchedFactory.address.stateOrProvince">{{subscription.watchedFactory.address.stateOrProvince }},</a>
+					<a ng-if="subscription.watchedFactory.address.countryCode">{{subscription.watchedFactory.address.countryCode }}</a></b>
+				 
+			</div>
+			<div class="item item-body">
+				 Frequency <span class="badge badge-positive">Live</span>
+			</div>
+			
+		</div>
+		<br>
+		
+		
+	</ion-content>
+</ion-view>

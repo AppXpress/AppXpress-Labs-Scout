@@ -1,0 +1,54 @@
+<ion-view view-title="Settings">
+	
+	<ion-nav-buttons side="right">
+		<a class="" href="#/tab/start" style="padding-top:0.5em;padding-right:0.4em;text-decoration: none;">
+			<span style="color:#0a0f2c;font-size:1em;">Sign-out</span>
+		</a>
+	</ion-nav-buttons>
+	
+	
+  <ion-content>
+    <ion-list>
+    <ion-toggle  ng-model="apnsSettings.enableAlerts" ng-true-value="'ON'" ng-false-value="'OFF'" ng-click="toogleAPNS()">
+        Enable Alerts
+    </ion-toggle>
+	
+	<li class="item item-divider">
+		Weather Service Provider
+	</li>
+	<label class="item item-radio">
+		<input type="radio" name="group" ng-value="yahoo" ng-model="settings.enableYahoo">
+			<div class="item-content">
+				Yahoo Weather (free)
+			</div>
+			<i class="radio-icon ion-checkmark"></i>
+			</label>
+		<!--
+	<label class="item item-radio">
+		<input type="radio" name="group">
+			<div class="item-content">
+				AccuWeather ($19.99 per month)
+			</div>
+			<i class="radio-icon ion-checkmark"></i>
+			</label>
+
+			-->
+	<label class="item item-radio">
+		<input type="radio" name="group" ng-disabled="true">
+			<div class="item-content">
+				Open Weather maps (free)
+			</div>
+			<i class="radio-icon ion-checkmark"></i>
+			</label>
+	<!-- <li class="item item-divider">
+    Debug
+</li>
+<li class="item">
+    <button class="button button-block button-dark" ng-click="triggerApns()">Apple Push Notification Trigger</button>
+    <!-- <button class="button button-block button-dark" ng-click="unregisterApns()">Un Register</button>
+</li> -->
+
+	
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,63 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="{{::alert.name}}"> <ion-content>
+<div class="alertIcon">
+	<img ng-src="{{alert.face}}" class="alertImage" width="60px"
+		height="60px" style="background-color:#FFFFFF;" />
+</div>
+
+<div class="{{::alert.background}} custom-background">
+	<div class="alertDetailText item-text-wrap"
+		style="padding-top: 300px; padding-right: 10px;">
+		<div class="row">
+			<div class="col">
+				<p style="padding-left: 1em; color: #fff; float: left;">{{::alert.name}}</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-25"></div>
+			<div class="col-75">
+				<span class="alertDetailHeader" style="float: right;">
+					{{::alert.keyValue}} {{::alert.keyValue2}}</span>
+			</div>
+		</div>
+
+
+	</div>
+
+</div>
+<div class="customWeather list">
+
+	<div class="alertDetailText item-body" style="text-align: left;">
+		Received On <br/> <div  class="badge alertDetailInfo badge-dark">{{alert.receivedTime}}</div>
+	</div>
+	
+	<div class="alertDetailText item-body" style="text-align: left;">
+		Affected Organization <br/><div class="badge alertDetailInfo badge-dark">{{alert.affectedParty}}</div>
+	</div>
+	
+	<!-- <div class="alertDetailText item-body">{{::alert.subTitle}}</div> -->
+	<div class="alertDetailText item-body">
+		Alert Detail <br/> <div class="badge alertDetailInfo badge-dark">{{::alert.lastText}}</div>
+	</div>
+
+
+	<!--  <div class="alertDetailText item-body">Possible action</div> -->
+	<div class="button-bar" style="padding: 5px;">
+		<!-- 
+		<a class="button button-balanced buttonLeft" href="#/tab/alerts">
+			Submit </a> 
+			 -->
+			<a class="button button-assertive" href="#/tab/alerts">
+			Ignore </a> <a class="button button-dark" ng-click="sendEmail()">
+			Share </a>
+	</div>
+
+
+</div>
+
+</ion-content> </ion-view>

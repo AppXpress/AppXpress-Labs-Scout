@@ -1,0 +1,52 @@
+<ion-view hide-nav-bar="true" class="pane"> <ion-content
+	class="padding loginBackground loginSpace">
+
+
+
+<div class="list input-custom" style="height:100%;">
+	<div class="scout">scout</div>
+	<div style="max-width:300px;margin:0 auto;text-align:center;">
+	<label class="item item-input input-custom username-border"> <input type="text"
+		name="loginwidget.username" placeholder="Username" ng-model="userName" autocapitalize="off">
+	</label> <label class="item item-input input-custom"> <input type="password"
+		name="loginwidget.password" placeholder="Password" ng-model="password">
+	</label> <label class="item item-input input-custom password-border"> <input type="number"
+		name="loginwidget.eid" placeholder="code" ng-model="eid">
+	</label>
+	</div>
+
+
+	<!-- <div class="item item-toggle">
+		Remember my login
+		<label class="toggle toggle-assertive">
+			<input type="checkbox" ng-model="ni_toggle" ng-change="updateLocalStorage()" id="store_password" name="store_password">
+				<div class="track">
+					<div class="handle"></div>
+				</div>
+				</label>
+	</div> -->
+	<div ng-show="loginError" style="color:#ff2923;text-align: center;">{{errorMessage}}</div>
+	<br> <a class="button button-block button-clear custom-button"
+		ng-click="signIn(userName,password)"> Sign-In </a><br>
+
+
+
+	 
+	<div
+		style="font-size: 0.9em; text-align: center; color: #fff; margin-top: 2em;">
+		0.1 beta</div>
+	
+	<div class="row">
+		<div class="col">
+			<h2 style="color:#fff;text-align:center;" id="erlenmeyer-icon"><i class="ion-erlenmeyer-flask"></i></h2>
+			<div style="font-size: 0.9em;color:#fff;text-align:center;">AppXpress Labs</div>
+		</div>
+	</div>
+	<div class="row row-bottom" style="position: absolute; 
+    bottom: 0; vertical-align:bottom;text-align:center;">
+		<div class="col">
+			<a ng-init="disToggle=false" class="button button-block button-clear custom-button-small" href="#/disclaimer">Disclaimer</a>
+			
+		</div>
+	</div>
+</ion-content> </ion-view>

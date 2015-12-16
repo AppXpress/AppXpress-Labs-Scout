@@ -1,0 +1,75 @@
+<ion-view title="Alerts">
+	<ion-nav-buttons side="right">
+		<a class="" href="#/tab/config" style="padding-top:0.15em;padding-right:0.4em;">
+			<i class="icon ion-ios-plus-empty" style="color:#0a0f2c;font-size:2.2em;"></i>
+		</a>
+		<!-- <span ng-if="!on" ng-click="showMapWindow();on=!on" style="z-index:10000;position:absolute;top:2600%;bottom:10px;right:10px;font-size:40px;color:#264fc7;"><i class="ion-earth"></i></span>
+					-->
+		 		 
+	  
+		</ion-nav-buttons>
+	
+	<span ng-class="iconBorder"></span>
+	
+	<span ng-if="!on" ng-click="showMapWindow();on=!on" style="z-index:10000;position:absolute;bottom:60px;right:10px;font-size:40px;color:#264fc7;"><i class="ion-earth"></i></span>
+  <ion-content>
+
+    <!-- <span ng-if="!on" ng-click="showMapWindow();on=!on" style="z-index:10000;position:absolute;bottom:10px;right:10px;font-size:40px;color:#264fc7;"><i class="ion-earth"></i></span> -->
+	
+	 <!-- <span ng-class="{'globeIcon': !on,'listIcon':on}" style="border: 0.5em solid #0a0f2c" ></span> -->
+
+	 <!--  <ion-scroll zooming="true" direction="xy" style="height:parent;" ng-show="false">
+ 		  <div style="width: parent; height: 1000px;" id="communityMap"></div> 
+ 
+	  </ion-scroll>  -->
+  
+  <!--   <map  zoom="2" ng-show="showMap"  data-tap-disabled="true">
+ 	  <custom-control id="home" position="TOP_RIGHT" index="1" on-click="">
+        <ion-checkbox ng-repeat="filterType in filterTypes" ng-model="filterType.enabled" ng-value="filterType.value" ng-change="filterTypeValidation(filterType.id)">{{filterType.label}}</ion-checkbox>
+        <button class="button button-assertive" ng-click="showMarkers()" ng-show="infoWindowTrigger" style="width:200px;">
+  		Display info windows
+		</button>
+		<button class="button button-positive" ng-click="hideInfoWindows()" ng-hide="infoWindowTrigger" style="width:200px;">
+  		Hide info windows
+		</button>
+        
+      </custom-control>     
+      <marker ng-repeat="(key,value) in locations | filter:filterType" id="{{key}}" position="{{value.lat}}, {{value.lon}}" title="{{value.name}}" on-click="popInfoWindow(key,value)"></marker>  
+	</map>-->
+	
+	
+ <!--<div id="map_canvas" ng-show="showMap" >
+    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" data-tap-disabled="true">
+        <ui-gmap-marker  ng-repeat="(key,value) in locations | filter:filterType" idkey="key" icon="customIcon2" coords="value.coords"  options="marker.options" click="" events="marker.events" >
+            <ui-gmap-window options="windowOptions" closeClick="closeClick()" ng-show="loader" maxWidth="600">
+                <div style="max-width:600px;">{{value.name}}</div>
+            </ui-gmap-window>
+        </ui-gmap-marker>
+    </ui-gmap-google-map>
+  </div>  -->
+      
+ <!--   <div id="map" style="height:1000px; ng-show="showMap"
+    width:100%;" ng-show="showMap" data-tap-disabled="true"></div>-->
+   <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="doRefresh()">
+  </ion-refresher>
+    <ion-list ng-show="!alertList" ng-hide="false">
+      <ion-item class="item item-avatar alert-custom" ng-repeat="alert in alerts" type="item-text-wrap" href="#/tab/alerts/{{alert.id}}">
+		  
+			 <img  ng-src="{{alert.face}}"/>
+			 
+
+			 <h3 style="color:#0a0f2c"> {{alert.name}}</h3>
+			 <p>{{alert.lastText}}</p>
+			 <p style="float:right; font-size:0.7em;">Received : {{alert.receivedTime | date:'yyyy-MM-dd HH:mm:ss'}}</p>
+			<ion-option-button class="button-assertive" ng-click="remove(alert)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+	
+  </ion-content>
+  
+ 	 
+</ion-view>

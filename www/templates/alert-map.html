@@ -1,0 +1,54 @@
+<ion-view title="Map View"> <ion-nav-buttons side="right">
+<a class="" href="#/tab/config"
+	style="padding-top: 0.15em; padding-right: 0.4em;"> <i
+	class="icon ion-ios-plus-empty"
+	style="color: #0a0f2c; font-size: 2.2em;"></i>
+</a> </ion-nav-buttons> <!-- <span ng-class="{'listIcon': !on2,'globeIcon':on2}" style="border: 0.5em solid #0a0f2c" ng-click="showAlertWindow();on2=!on2"></span> -->
+
+<span ng-if="!on2" ng-click="showAlertWindow();on2=!on2"
+	style="position: absolute; bottom: 60px; right: 10px; z-index: 99999; font-size: 40px; color: #264fc7;"><i
+	class="ion-ios-list"></i></span> <span ng-class="iconBorder"></span> <ion-content>
+<div id="map_canvas" ng-show="true">
+	<ui-gmap-google-map center="map.center" zoom="map.zoom"
+		draggable="true" options="options" data-tap-disabled="true">
+	<ui-gmap-marker
+		ng-repeat="(key,value) in locations | filter:filterType" idkey="key"
+		icon="value.icon" coords="value.coords" options="value.options"
+		click="markerClicked(value)" events="marker.events">
+	<!--   <ui-gmap-window options="windowOptions" closeClick="closeClick()" ng-show="loader" maxWidth="600" >
+				<div style="max-width:600px;border:2px solid black;
+    margin-top: 8px;
+    background:#333;
+    color:#FFF;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    padding: .5em 1em;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    text-shadow:0 -1px #000000;
+    -webkit-box-shadow: 0 0  8px #000;
+    box-shadow: 0 0 8px #000;">{{::value.address}}><hr><b><u>Social Info</u></b><ul><li>{{statusesArray[0].text}}</li><li>{{statusesArray[1].text}}</li><li>{{statusesArray[2].text}}</li><li ng-repeat="status_social in statusesArray">XXX</li></ul></div>
+    		
+            </ui-gmap-window>  --> </ui-gmap-marker> </ui-gmap-google-map>
+</div>
+
+<iframe ng-src="{{currentProjectUrl}}"> </iframe>
+
+<div id="showError">
+	<span ng-modal="errorClose" ng-click="hideMessge()"><i
+		class="ion-ios-close" id="errorExit"></i></span><span style="color: #66CCFF;"><b>Address
+			: </b></span><span class="errorDesc">{{displayError}}</span>
+	<hr>
+	<span style="color: #66CCFF;"><b><u>Subscription status</u></b>
+		: </span><span ng-if="subsStatus=='OFF'" style="color: #c13236;">{{subsStatus}}</span><span
+		ng-if="subsStatus=='ON'" style="color: #8AE62E;">{{subsStatus}}</span>
+	<hr>
+	<span style="color: #66CCFF;"><b><u>Social Info<br></u></b></span>
+	<!--  <ul ng-repeat="status_social in statusesArray">
+		<li>{{status_social.text}}<br></li>
+	</ul>  -->
+	<ul ng-bind-html="myHTML"></ul>
+	<ul ng-if="ScoialInfoMessage != '' || statusesArray.length==0">Currently no social messages..</ul>
+</div>
+</ion-content> </ion-view>

@@ -1,0 +1,125 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="Configure New Alert" cache-view="false">
+<ion-content class="padding">
+<ul class="list card customListFor">
+	<li class="item item-divider">Available Location</li>
+
+
+	<ion-list> <!-- 
+					<ion-item   ng-repeat="party in partyList | filter: { partyRoleCode : 'Seller'}" type="item-text-wrap"> -->
+
+	<ion-item ng-repeat="party in partyList | filter: filterParty"
+		type="item-text-wrap">
+	<li class=" item-checkbox"><label class="checkbox"> <input
+			type="checkbox" ng-model="party.enabled"
+			ng-change="subscribeValidation(party)">
+
+	</label>
+
+		<div ng-if="party.chkList == true">
+			<span class="item-text-wrap" style="text-decoration: line-through;">{{party.name}}</span>
+			<p>
+				<span class="item-text-wrap" style="text-decoration: line-through;">{{party.address.addressLine1}}
+					{{party.address.city}}</span>
+			</p>
+		</div>
+		<div ng-if="party.chkList == false">
+			<span class="item-text-wrap">{{party.name}}</span>
+			<p>
+				<span class="item-text-wrap">{{party.address.addressLine1}}
+					{{party.address.city}}</span>
+			</p>
+		</div>
+		</div></li>
+
+	</ion-item> </ion-list>
+
+	<li class="item item-divider">Other options</li>
+
+	<li class="item item-checkbox"><label class="checkbox"> 
+	<input ng-click="filterFactories($event)" type="checkbox">
+	</label> Show only factory locations</li>
+	<li class="item item-divider">Set Alert Frequency</li>
+
+
+	<ion-radio ng-model="frequency" ng-value="'60'">Live</ion-radio>
+	<ion-radio ng-model="frequency" ng-value="'1440'" ng-disabled="true">Daily</ion-radio>
+	<ion-radio ng-model="frequency" ng-value="'10080'" ng-disabled="true">Weekly</ion-radio>
+
+
+	<!--  
+				<label class="item item-radio">
+					<input type="radio" name="group" ng-model="frequency" ng-value="60" >
+						<div class="item-content">
+							Live
+						</div>
+						<i class="radio-icon ion-checkmark"></i>
+						</label>
+				<label class="item item-radio">
+					<input type="radio" name="group" ng-model="frequency" ng-value="1440" ng-change="severityValidation()">
+						<div class="item-content">
+							Daily
+						</div>
+						<i class="radio-icon ion-checkmark"></i>
+						</label>
+				<label class="item item-radio">
+					<input type="radio" name="group" ng-model="frequency" ng-value="10080" ng-change="severityValidation()">
+						<div class="item-content">
+							Daily
+						</div>
+						<i class="radio-icon ion-checkmark"></i>
+						</label>
+						-->
+
+	<li class="item item-divider">Severity</li>
+
+	<ion-checkbox ng-repeat="severity in severities"
+		ng-model="severity.enabled" ng-value="severity.value"
+		ng-change="serverityValidation(severity.id)">{{severity.label}}</ion-checkbox>
+	<!--  
+				<li class="item item-checkbox">
+					<label class="checkbox">
+						<input type="checkbox">
+							</label>
+					CAT 2 - Warning
+				</li>
+				<li class="item item-checkbox">
+					<label class="checkbox">
+						<input type="checkbox">
+							</label>
+					CAT 3 - Serious
+				</li>
+				<li class="item item-checkbox">
+					<label class="checkbox">
+						<input type="checkbox">
+							</label>
+					CAT 4 - Critical
+				</li>
+				<li class="item item-checkbox">
+					<label class="checkbox">
+						<input type="checkbox">
+							</label>
+					CAT 5 - Catastrophic
+				</li> -->
+
+	<li class="item">
+		<div class="button-bar">
+			<a class="button button-block button-balanced"
+				ng-click="subscribeForAlert(frequency)"> Subscribe </a> <a
+				class="button button-block button-assertive" href="#/tab/alerts">
+				Cancel </a>
+		</div>
+	</li>
+
+</ul>
+
+
+
+
+
+</ion-content> </ion-view>

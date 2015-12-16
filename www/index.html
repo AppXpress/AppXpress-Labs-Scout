@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <!-- loading angular resource -->
+     <script src="lib/ionic/js/angular/angular-resource.js"></script>
+     <!-- loading angular base64 -->
+      <script src="lib/ionic/js/angular/angular-base64.js"></script>
+    <!-- app specific libs -->
+
+    <script src="lib/push/push-notifications.js"></script>
+    <script src="lib/appxpress/appxpress.core-1.1.0/common-core.js"></script>
+	<script src="lib/moment/js/moment.js"></script>
+	<script src="lib/moment/js/moment-timezone.js"></script>
+	<script src="lib/jstimezonedetect/js/jstimezonedetect.js"></script>
+	
+	<!-- google -->
+
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=weather,visualization,panoramio"></script>
+	<!--  <script src="lib/google/markerwithlabel.js"></script> -->
+
+  <!--  <script src="lib/angular-maps/lodash.js"></script>
+   <script src="lib/angular-maps/angular-google-maps.min.js"></script>  -->
+
+	<!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+     <script src="js/app.module.js"></script>
+  
+    <script src="js/app.config.js"></script>
+     <script src="js/app.proto.js"></script>
+    <script src="js/app.common.js"></script>
+    <script src="js/mapAPI.js"></script>
+
+	
+    <script src="js/app.global.js"></script>
+    <script src="js/app.party.js"></script>
+   	<script src="js/factory.cordovapush.js"></script>
+   	<script src="js/factory.emailcomposer.js"></script>
+   <!-- 	<script src="js/app.weathercode.js"></script> -->
+    <script src="js/app.weathercode.synergy.js"></script>
+
+	<!-- <script src="js/factory.inappbrowser.js"></script> -->
+    <script src="js/factory.configservice.js"></script>
+    <script src="js/factory.deviceservice.js"></script>
+    <script src="js/factory.notificationservice.js"></script>
+    <script src="js/factory.subscservice.js"></script>
+    <script src="js/factory.alertservice.js"></script>
+    <script src="js/factory.partyservice.js"></script>
+    <!-- <script src="js/factory.dialogs.js"></script> -->
+    
+    
+    <!-- Comment -->
+
+    <script src="js/app.services.js"></script>
+    <script src="js/controller.accountctrl.js"></script>
+    <script src="js/controller.dashctrl.js"></script>
+    <script src="js/controller.loginctrl.js"></script>
+    <script src="js/controller.mapctrl.js"></script>
+    <script src="js/controller.alertsctrl.js"></script>
+    <script src="js/controller.alertconfigctrl.js"></script>
+    <script src="js/controller.alertdetailctrl.js"></script>
+    <script src="js/controller.alertpoctrl.js"></script>
+
+    <script src="js/app.js"></script>
+   <!-- <script src="lib/ngmap/ng-map.min.js"></script>  -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+    <script src="http://rawgit.com/angular-ui/angular-google-maps/2.0.X/dist/angular-google-maps.js"></script>  -->
+   <script src="lib/angular-maps/lodash.js"></script>
+   <script src="lib/angular-maps/angular-google-maps.min.js"></script>
+
+  </head>
+  <body ng-app="starter">
+
+    <!--
+      The nav bar that will be updated as we navigate between views.
+    -->
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+    </ion-nav-bar>
+    <!--
+      The views will be rendered in the <ion-nav-view> directive below
+      Templates are in the /templates folder (but you could also
+      have templates inline in this html file if you'd like).
+    -->
+    <ion-nav-view class="background"></ion-nav-view>
+    <script src="lib/google/move.js"></script>
+  </body>
+</html>
